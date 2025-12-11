@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UPC Inventory Device</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app-shell">
+  <header class="app-header">
+    <div>
+      <div class="app-header-title">UPC Inventory Device</div>
+      <div class="app-header-subtitle">Scan items from handheld device – live to SuperAdmin dashboard</div>
+    </div>
+    <a href="admin.html">
+      <button class="btn-outline btn-small">Super Admin Login</button>
+    </a>
+  </header>
+
+  <main class="app-main">
+    <section class="card" id="session-card">
+      <div class="card-title">Step 1 – Device & Location</div>
+      <div class="form-grid">
+        <div>
+          <label for="deviceId">Device Number</label>
+          <input id="deviceId" type="text" placeholder="Eg. DEV-01" />
+        </div>
+        <div>
+          <label for="warehouse">Warehouse</label>
+          <select id="warehouse">
+            <option value="">Select warehouse</option>
+            <option value="M02">M02 – Medicine</option>
+            <option value="C02">C02 – Cosmetic</option>
+            <option value="D02">D02 – Diaper</option>
+            <option value="K02">K02 – Milk</option>
+          </select>
+        </div>
+        <div>
+          <label for="zone">Zone</label>
+          <input id="zone" type="text" placeholder="Eg. B02" />
+        </div>
+        <div>
+          <label for="storageBin">Storage Bin</label>
+          <input id="storageBin" type="text" placeholder="Eg. R05-029" />
+        </div>
+      </div>
+      <div style="margin-top: 12px;">
+        <button id="startSessionBtn" class="btn-primary">Start Inventory Session</button>
+      </div>
+    </section>
+
+    <section class="card" id="scan-card" style="display:none;">
+      <div class="section-title-row">
+        <div class="card-title">Step 2 – Scan Material</div>
+        <div class="badge" id="sessionInfoBadge"></div>
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label for="barcodeInput">Scan Barcode / QR</label>
+          <input id="barcodeInput" type="text" placeholder="Focus here and scan…" />
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <button id="findMaterialBtn" class="btn-outline btn-small">Find Material</button>
+        </div>
+      </div>
+
+      <hr style="margin:16px 0;border:none;border-top:1px solid #e5e7eb;" />
+
+      <div class="form-grid">
+        <div>
+          <label for="materialCode">Material Code</label>
+          <input id="materialCode" type="text" placeholder="Auto / manual" />
+        </div>
+        <div>
+          <label for="materialDesc">Material Description</label>
+          <input id="materialDesc" type="text" placeholder="Auto / manual" />
+        </div>
+        <div>
+          <label for="confirmedBarcode">Barcode</label>
+          <input id="confirmedBarcode" type="text" readonly />
+        </div>
+        <div>
+          <label for="batch">Batch</label>
+          <input id="batch" type="text" placeholder="Type batch" />
+        </div>
+        <div>
+          <label for="qty">Quantity</label>
+          <input id="qty" type="number" min="0" step="1" placeholder="0" />
+        </div>
+      </div>
+
+      <div style="margin-top: 12px; display:flex; gap:8px; flex-wrap:wrap;">
+        <button id="verifyBtn" class="btn-outline btn-small">Verify</button>
+        <button id="editBtn" class="btn-outline btn-small">Edit</button>
+        <button id="saveBtn" class="btn-primary btn-small">Save Line</button>
+      </div>
+
+      <p style="font-size:11px;color:#6b7280;margin-top:8px;">
+        Tip: After each save, you can continue scanning the next item with the same Device / Warehouse / Zone / Bin.
+      </p>
+    </section>
+  </main>
+</div>
+
+<!-- Firebase CDN -->
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+
+<!-- Config + master data -->
+<script src="firebaseConfig.js"></script>
+<script src="data_medicine.js"></script>
+<script src="data_cosmetic.js"></script>
+<script src="data_diaper.js"></script>
+<script src="data_milk.js"></script>
+
+<!-- Device logic -->
+<script src="app_device.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UPC Inventory Super Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app-shell">
+  <header class="app-header">
+    <div>
+      <div class="app-header-title">UPC Inventory – Super Admin</div>
+      <div class="app-header-subtitle">Live monitoring of all devices & inventory sessions</div>
+    </div>
+    <a href="device.html">
+      <button class="btn-outline btn-small">Go to Device Screen</button>
+    </a>
+  </header>
+
+  <main class="app-main">
+    <section class="card" id="login-card">
+      <div class="card-title">Login as Super Admin</div>
+      <div class="form-grid">
+        <div>
+          <label for="adminUser">Username</label>
+          <input id="adminUser" type="text" placeholder="superadmin" />
+        </div>
+        <div>
+          <label for="adminPass">Password</label>
+          <input id="adminPass" type="password" placeholder="123456" />
+        </div>
+      </div>
+      <div style="margin-top:12px;">
+        <button id="adminLoginBtn" class="btn-primary">Login</button>
+      </div>
+      <p style="font-size:11px;color:#6b7280;margin-top:8px;">
+        Default credentials – Username: <strong>superadmin</strong> &nbsp; Password: <strong>123456</strong>
+      </p>
+    </section>
+
+    <section class="card" id="admin-dashboard-card" style="display:none;">
+      <div class="section-title-row">
+        <div class="card-title">Live Sessions / Devices</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+          <div class="badge" id="totalSessionsBadge">0 session(s)</div>
+          <button id="exportAllBtn" class="btn-outline btn-small">Download All Excel (.xls)</button>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table id="sessionsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Device</th>
+              <th>Warehouse</th>
+              <th>Zone</th>
+              <th>Storage Bin</th>
+              <th>Total Lines</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" id="session-detail-card" style="display:none;">
+      <div class="section-title-row">
+        <div class="card-title" id="detailTitle">Session details</div>
+        <button id="closeDetailBtn" class="btn-outline btn-small">Close</button>
+      </div>
+      <div class="table-scroll">
+        <table id="detailTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Material</th>
+              <th>Description</th>
+              <th>Barcode</th>
+              <th>Warehouse</th>
+              <th>Zone</th>
+              <th>Storage Bin</th>
+              <th>Batch</th>
+              <th>Qty</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div style="margin-top:12px;">
+        <button id="exportSessionBtn" class="btn-primary btn-small">Download This Session (.xls)</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Firebase CDN -->
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+
+<script src="firebaseConfig.js"></script>
+<script src="app_admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UPC Inventory System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app-shell">
+  <header class="app-header">
+    <div>
+      <div class="app-header-title">UPC Inventory System</div>
+      <div class="app-header-subtitle">Device-side scanning + Super Admin live dashboard</div>
+    </div>
+  </header>
+  <main class="app-main">
+    <section class="card">
+      <div class="card-title">Choose Screen</div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:8px;">
+        <a href="device.html" style="text-decoration:none;">
+          <div class="card" style="width:260px;cursor:pointer;">
+            <div class="card-title">Inventory Device</div>
+            <p style="font-size:12px;color:#4b5563;">
+              Use this on handheld device / PC during physical inventory. Scan barcode / QR, enter batch and quantity.
+            </p>
+          </div>
+        </a>
+        <a href="admin.html" style="text-decoration:none;">
+          <div class="card" style="width:260px;cursor:pointer;">
+            <div class="card-title">Super Admin Dashboard</div>
+            <p style="font-size:12px;color:#4b5563;">
+              Single login (superadmin / 123456) to monitor all devices, edit / delete lines, and export Excel (CSV).
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>
