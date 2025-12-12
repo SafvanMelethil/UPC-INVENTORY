@@ -105,6 +105,26 @@
   </main>
 </div>
 
+<!-- BIG SUCCESS POPUP -->
+<div id="successModal" class="success-modal" style="display:none;">
+  <div class="success-box" role="dialog" aria-modal="true">
+    <div class="success-icon">✔</div>
+    <div class="success-text">CONFIRM ENTRY</div>
+
+    <div class="success-details">
+      <div><b>Material:</b> <span id="popMaterial"></span></div>
+      <div><b>Description:</b> <span id="popDesc"></span></div>
+      <div><b>Qty:</b> <span id="popQty"></span></div>
+    </div>
+
+    <div class="success-actions">
+      <button id="popEditBtn" class="success-btn-outline" type="button">EDIT</button>
+      <button id="popSaveBtn" class="success-btn" type="button">SAVE</button>
+    </div>
+  </div>
+</div>
+
+
 <!-- Firebase CDN -->
 <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
