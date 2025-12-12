@@ -71,6 +71,88 @@ label {
   margin-bottom: 4px;
 }
 
+/* BIG SUCCESS POPUP */
+.success-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.success-box {
+  background: #ffffff;
+  padding: 28px 24px;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  animation: popIn 0.2s ease-out;
+}
+
+.success-icon {
+  font-size: 42px;
+  color: #16a34a;
+  margin-bottom: 10px;
+}
+
+.success-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.success-btn {
+  background: #16a34a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 26px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.success-details{
+  margin: 14px 0 18px;
+  text-align: left;
+  font-size: 14px;
+  color:#111827;
+  line-height: 1.6;
+}
+.success-actions{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
+.success-btn-outline{
+  background:#fff;
+  color:#16a34a;
+  border:1px solid #16a34a;
+  padding:10px 22px;
+  font-size:14px;
+  font-weight:700;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+
+
 input[type="text"],
 input[type="number"],
 input[type="password"],
